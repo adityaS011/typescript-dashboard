@@ -1,5 +1,7 @@
-const Dashboard = () => {
-  return <div className="p-4">Dashboard</div>;
+import { redirect } from "next/navigation";
+
+export default function Dashboard() {
+  redirect('/my-tasks');
+  return null;
 };
 
-export default Dashboard;

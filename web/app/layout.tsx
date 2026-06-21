@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeRegistry } from "./lib/theme-registry";
+import { AgGridClientProvider } from "./providers/AgGridProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeRegistry>{children}</ThemeRegistry>
+        <AgGridClientProvider>
+          <ThemeRegistry>{children}</ThemeRegistry>
+        </AgGridClientProvider>
       </body>
     </html>
   );
